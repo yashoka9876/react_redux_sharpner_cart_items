@@ -27,8 +27,13 @@ const cartreducer=createSlice({
 
         },
         decrementQuantity(state,actions){
-            const existingProdcut=state.CartArray.find((product)=>product.title===actions.payload.title);
-            existingProdcut.quantity--;
+            const existingProdcutIndex=state.CartArray.findIndex((product)=>product.title===actions.payload.title);
+            if(state.CartArray[existingProdcutIndex].quantity>0){
+                state.CartArray[existingProdcutIndex].quantity--;
+            }
+            if(state.CartArray[existingProdcutIndex].quantity===0){
+                state.CartArray.splice(existingProdcutIndex,1);
+            }
         }
     } 
 })
