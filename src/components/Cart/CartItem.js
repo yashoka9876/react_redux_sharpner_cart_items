@@ -6,7 +6,6 @@ const CartItem = (props) => {
   const { title, quantity, total, price } = props.item;
   const dispatch=useDispatch();
   const quantityNumber=useSelector(state=>state.cart.CartArray)
-  console.log(quantityNumber)
 
   return (
     <ul>
