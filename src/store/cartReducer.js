@@ -12,6 +12,10 @@ const cartreducer=createSlice({
             console.log('hia')
             state.cocart=!state.cocart;
         },
+        addInitialValue(state,actions){
+            state.CartArray=actions.payload;
+        },
+
         addToCartArray(state,actions){
             const existingProdcut=state.CartArray.find((product)=>product.title===actions.payload.title);
             if(existingProdcut){
